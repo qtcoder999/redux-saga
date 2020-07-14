@@ -1,3 +1,6 @@
-export const FETCH_REPOS = "fetch_repos";
-export const FETCH_REPOS_SUCCESS = "fetch_repos_success";
-export const FETCH_REPOS_FAILOUR = "fetch_repos_failour";
+export const FETCH_REPOS = "FETCH_REPOS";
+export const FETCH_REPOS_SUCCESS = "FETCH_REPOS_SUCCESS";
+export const FETCH_REPOS_FAILURE = "FETCH_REPOS_FAILURE";
+export const FETCH_USER_DATA = "FETCH_USER_DATA";
+export const FETCH_USER_DATA_SUCCESS = "FETCH_USER_DATA_SUCCESS";
+export const FETCH_USER_DATA_FAILURE = "FETCH_USER_DATA_FAILURE";
