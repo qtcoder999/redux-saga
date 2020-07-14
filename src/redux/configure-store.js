@@ -1,4 +1,10 @@
-const { createStore } = require("redux");
+import saga from "redux-saga";
+import { rootSaga } from "./rootSaga";
+const { createStore, applyMiddleware } = require("redux");
 const { rootReducer } = require("./rootReducer");
 
-export const store = createStore(rootReducer);
+const sagaMiddleware = saga();
+
+export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(rootSaga);
