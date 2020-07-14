@@ -5,6 +5,9 @@ import {
   FETCH_USER_DATA,
   FETCH_USER_DATA_SUCCESS,
   FETCH_USER_DATA_FAILURE,
+  FETCH_REPO_DETAILS,
+  FETCH_REPO_DETAILS_SUCCESS,
+  FETCH_REPO_DETAILS_FAILURE,
 } from "./constant";
 
 const INITIAL_STATE = {
@@ -12,6 +15,11 @@ const INITIAL_STATE = {
   isLoading: false,
   isError: false,
   userData: {
+    isLoading: false,
+    isError: false,
+    details: [],
+  },
+  repoDetails: {
     isLoading: false,
     isError: false,
     details: [],
@@ -42,6 +50,26 @@ export function repoReducer(state = INITIAL_STATE, { payload, type }) {
       return {
         ...state,
         userData: { ...state.userData, isError: true, isLoading: false },
+      };
+
+    case FETCH_REPO_DETAILS:
+      return {
+        ...state,
+        repoDetails: { ...state.repoDetails, isLoading: true },
+      };
+    case FETCH_REPO_DETAILS_SUCCESS:
+      return {
+        ...state,
+        repoDetails: {
+          ...state.repoDetails,
+          details: [...state.repoDetails.details, ...payload],
+          isLoading: false,
+        },
+      };
+    case FETCH_REPO_DETAILS_FAILURE:
+      return {
+        ...state,
+        repoDetails: { ...state.repoDetails, isError: true, isLoading: false },
       };
 
     default:

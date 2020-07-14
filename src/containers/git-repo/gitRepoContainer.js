@@ -9,6 +9,12 @@ function GitRepoContainer({
   isLoading: isUsersLoading,
   isError: isUsersError,
   userData: { isLoading: isDetailLoading, isError: isDetailError, details },
+  fetchRepoDetails,
+  repoDetails: {
+    isLoading: isRepoLoading,
+    isError: isRepoError,
+    details: repoDetails,
+  },
   ...props
 }) {
   useEffect(() => {
@@ -19,11 +25,12 @@ function GitRepoContainer({
     <div>
       <ul>
         {users &&
-          users.map(({ login, id }) => {
+          users.map(({ login, node_id }) => {
             return (
               <li
-                key={id}
-                onClick={() => {
+                key={node_id}
+                onClick={(e) => {
+                  e.preventDefault();
                   fetchUserDetails(login);
                 }}
               >
@@ -31,17 +38,32 @@ function GitRepoContainer({
                 <ul>
                   {details &&
                     details.map(
-                      ({
-                        id: repoid,
-                        name: repoName,
-                        html_url,
-                        owner: { login: ownerLogin },
-                      }) =>
+                      (
+                        {
+                          node_id,
+                          name: repoName,
+                          html_url,
+                          owner: { login: ownerLogin },
+                        },
+                        repoIndex
+                      ) =>
                         ownerLogin === login ? (
-                          <li key={repoid}>
-                            <a target="_blank" href={html_url}>
-                              {repoName}
-                            </a>
+                          <li
+                            key={repoIndex}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              fetchRepoDetails(ownerLogin, repoName);
+                            }}
+                          >
+                            <div>{repoName}</div>
+                            <ul>
+                              {repoDetails &&
+                                repoDetails.map(
+                                  ({ commit: { message } }, index) => (
+                                    <li key={index}>{message}</li>
+                                  )
+                                )}
+                            </ul>
                           </li>
                         ) : null
                     )}
