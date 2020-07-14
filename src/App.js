@@ -8,11 +8,24 @@ import GitRepo from "./containers/git-repo/gitRepoContainer";
 function App() {
   return (
     <Provider store={store}>
+
+      <header>
+        <h1>
+          Github Reader
+      </h1>
+        <h2>
+          Observe all the users lists
+        </h2>
+        <h3>
+          Take a look at their repos!
+        </h3>
+      </header>
+
       <div className="App">
-        <header className="App-header">
-          {/* <CounterContainer /> */}
-          <GitRepo />
-        </header>
+
+        {/* <CounterContainer /> */}
+        <GitRepo />
+
       </div>
     </Provider>
   );

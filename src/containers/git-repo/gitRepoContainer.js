@@ -23,14 +23,14 @@ function GitRepoContainer({
   // console.log(details);
   return (
     <div>
-      <ul>
+      <ul className="check-list">
         {users &&
           users.map(({ login, node_id }) => {
             return (
               <li
                 key={node_id}
                 onClick={(e) => {
-                  e.preventDefault();
+                  e.stopPropagation();
                   fetchUserDetails(login);
                 }}
               >
@@ -42,7 +42,7 @@ function GitRepoContainer({
                         {
                           node_id,
                           name: repoName,
-                          html_url,
+                          html_url: repoHtmlUrl,
                           owner: { login: ownerLogin },
                         },
                         repoIndex
@@ -51,16 +51,17 @@ function GitRepoContainer({
                           <li
                             key={repoIndex}
                             onClick={(e) => {
-                              e.preventDefault();
+                              e.stopPropagation();
                               fetchRepoDetails(ownerLogin, repoName);
                             }}
                           >
-                            <div>{repoName}</div>
+                            {repoName}
                             <ul>
                               {repoDetails &&
                                 repoDetails.map(
-                                  ({ commit: { message } }, index) => (
-                                    <li key={index}>{message}</li>
+                                  ({ commit: { message }, html_url: commitHtmlUrl }, index) => (
+                                    commitHtmlUrl.includes(repoHtmlUrl) ? (
+                                      <li key={index}>{message}</li>) : null
                                   )
                                 )}
                             </ul>

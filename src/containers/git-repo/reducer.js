@@ -42,7 +42,7 @@ export function repoReducer(state = INITIAL_STATE, { payload, type }) {
         ...state,
         userData: {
           ...state.userData,
-          details: [...state.userData.details, ...payload],
+          details: [...payload],
           isLoading: false,
         },
       };
@@ -62,7 +62,7 @@ export function repoReducer(state = INITIAL_STATE, { payload, type }) {
         ...state,
         repoDetails: {
           ...state.repoDetails,
-          details: [...state.repoDetails.details, ...payload],
+          details: [...payload],
           isLoading: false,
         },
       };
