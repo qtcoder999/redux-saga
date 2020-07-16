@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Suspense } from 'react';
 import "./App.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/configure-store";
-// import CounterContainer from "./containers/counter/counter-container";
-import GitRepo from "./containers/git-repo/gitRepoContainer";
+const GitRepo = React.lazy(() => import('./containers/git-repo/gitRepoContainer'));
+const CounterContainer = React.lazy(() => import('./containers/counter/counter-container'));
+
 
 function App() {
   return (
@@ -22,9 +23,10 @@ function App() {
       </header>
 
       <div className="App">
-
-        {/* <CounterContainer /> */}
-        <GitRepo />
+        <Suspense fallback={<div>Loading...</div>}>
+          <CounterContainer />
+          <GitRepo />
+        </Suspense>
 
       </div>
     </Provider>
