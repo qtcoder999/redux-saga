@@ -19,6 +19,7 @@ function GitRepoContainer({
 }) {
   useEffect(() => {
     fetchUsers();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // console.log(details);
   return (
