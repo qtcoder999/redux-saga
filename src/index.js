@@ -4,8 +4,6 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 const App = React.lazy(() => import('./App'));
 
-
-
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={<div>Loading...</div>}>

@@ -9,7 +9,6 @@ const CounterContainer = React.lazy(() => import('./containers/counter/counter-c
 function App() {
   return (
     <Provider store={store}>
-
       <header>
         <h1>
           Github Reader
