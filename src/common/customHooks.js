@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export const useAPI = (endpoint) => {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState([]);
+  const [data, setData] = useState();
+  const [error, setError] = useState();
   const [isFetching, setIsFetching] = useState(false);
   const getApiData = async () => {
     setIsFetching(true);

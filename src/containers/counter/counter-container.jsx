@@ -3,21 +3,35 @@ import { connect } from "react-redux";
 import { increment, decrement } from "./actions";
 import Counter from "../../components/counter/counter";
 import { useAPI } from "../../common/customHooks";
-import { useEffect } from "react";
 
 function CounterContainer(props) {
   const { data: users, error, isFetching } = useAPI(
     "http://jsonplaceholder.typicode.com/users"
   );
+
+  function renderList(users) {
+    return users && users.map(({ id, name }) => <li key={id}>{name}</li>);
+  }
+
+  function renderError() {
+    return <>Network Error</>;
+  }
+  const showData = () => {
+    if (!error) {
+      if (isFetching) {
+        return <>...Loading</>;
+      } else {
+        return renderList(users);
+      }
+    } else {
+      return renderError();
+    }
+  };
+
   return (
     <>
-      {/* <Counter {...props} /> */}
-      <div> isfetching:{isFetching.toString()}</div>
-      {isFetching ? (
-        <div>...Loading</div>
-      ) : (
-        users && users.map(({ id, name }) => <li key={id}>{name}</li>)
-      )}
+      <Counter {...props} />
+      {showData()}
     </>
   );
 }
