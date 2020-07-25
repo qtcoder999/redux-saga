@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { increment, decrement } from "./actions";
 import Counter from "../../components/counter/counter";
-import { useAPI } from "../../common/customHooks";
 
 function CounterContainer(props) {
   return (
