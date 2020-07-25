@@ -84,7 +84,7 @@ ul, li{
     height: 100%;
     width:100%;
     transform: skewY(-4deg);
-    background: red;
+    background: #333;
     transform-origin: bottom left;
     z-index: -1;
   }
@@ -97,7 +97,7 @@ ul, li{
     height: 100%;
     width:100%;
     transform: skewY(8deg);
-    background: red;
+    background: #333;
     transform-origin: bottom right;
     z-index: -1;
   }
