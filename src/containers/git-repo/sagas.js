@@ -14,7 +14,7 @@ import axios from "axios";
 export function* getUsers() {
   try {
     const { data } = yield call(() =>
-      axios.get("https://api.github.com/users")
+      axios.get("https://jsonblob.com/api/64743a51-ce9c-11ea-a271-23e375ad002d")
     );
     yield put({ type: FETCH_REPOS_SUCCESS, payload: data });
   } catch (error) {
@@ -30,8 +30,15 @@ export function* gitUserWatcherSaga() {
 
 export function* getUserData(action) {
   try {
-    const { data } = yield call(({payload}) => axios.get(`https://api.github.com/users/${payload}/repos`), action);
-    
+    // const { data } = yield call(({payload}) => axios.get(`https://api.github.com/users/${payload}/repos`), action);
+    const { data } = yield call(
+      ({ payload }) =>
+        axios.get(
+          `https://jsonblob.com/api/81ae874d-ce9c-11ea-a271-e79f32c2ac48`
+        ),
+      action
+    );
+
     yield put({ type: FETCH_USER_DATA_SUCCESS, payload: data });
   } catch (error) {
     yield put({ type: FETCH_USER_DATA_FAILURE, payload: error });

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Commit } from "../commit-list/commit-list";
 
 // function areEqual(prevProps, nextProps) {
@@ -6,12 +6,12 @@ import { Commit } from "../commit-list/commit-list";
 //   return (JSON.stringify(prevProps.userData.details) !== JSON.stringify(nextProps.userData.details))
 // }
 
+export const Repo = memo(
+  ({
+    userData: { isLoading: isDetailLoading, isError: isDetailError, details },
 
-export const Repo = ({
-  userData: { isLoading: isDetailLoading, isError: isDetailError, details },
-
-  ...props
-}) => (
+    ...props
+  }) => (
     <ul>
       {details &&
         details.map(
@@ -38,4 +38,5 @@ export const Repo = ({
             ) : null
         )}
     </ul>
-  );
+  )
+);
