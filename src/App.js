@@ -3,12 +3,7 @@ import "./App.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/configure-store";
 
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  Redirect
-} from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Navigation from "./common/navigation/routes";
 import { ReactLazyPreload } from "./common/utils";
@@ -19,10 +14,7 @@ const GitRepo = React.lazy(() =>
 const CounterContainer = React.lazy(() =>
   import("./containers/counter/counter-container")
 );
-const UserList = React.lazy(() =>
-  import("./containers/users/user-list")
-);
-
+const UserList = React.lazy(() => import("./containers/users/user-list"));
 
 const GitRepoPreload = ReactLazyPreload(() =>
   import("./containers/git-repo/gitRepoContainer")
@@ -35,11 +27,12 @@ const UserListPreload = ReactLazyPreload(() =>
 );
 
 function App() {
-
   useEffect(() => {
-    GitRepoPreload.preload()
-    CounterContainerPreload.preload()
-    UserListPreload.preload()
+    setTimeout(() => {
+      GitRepoPreload.preload();
+      CounterContainerPreload.preload();
+      UserListPreload.preload();
+    }, 2000);
   }, []);
 
   return (
@@ -60,7 +53,7 @@ function App() {
           </Switch>
         </BrowserRouter>
       </Suspense>
-    </Provider >
+    </Provider>
   );
 }
 
