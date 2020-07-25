@@ -1,10 +1,39 @@
 import React, { memo } from "react";
 import { Commit } from "../commit-list/commit-list";
+import { arraysAreEqual } from "../../common/utils";
 
-// function areEqual(prevProps, nextProps) {
-//   console.log(JSON.stringify(prevProps.userData.details) !== JSON.stringify(nextProps.userData.details))
-//   return (JSON.stringify(prevProps.userData.details) !== JSON.stringify(nextProps.userData.details))
-// }
+const areEqual = (prevProps, nextProps) => {
+  // console.log({
+  //   userDataPrevious: prevProps.userData.details,
+  //   userDataNew: nextProps.userData.details,
+  // });
+
+  // console.log({
+  //   repoDetailsPrevious: prevProps.repoDetails.details,
+  //   repoDetailsNew: nextProps.repoDetails.details,
+  // });
+
+  console.log(
+    "arraysAreEqual(prevProps.userData.details, nextProps.userData.details)",
+    arraysAreEqual(prevProps.userData.details, nextProps.userData.details)
+  );
+
+  console.log(
+    "arraysAreEqual(prevProps.repoDetails.details, nextProps.repoDetails.details)",
+    arraysAreEqual(prevProps.repoDetails.details, nextProps.repoDetails.details)
+  );
+
+  if (
+    0
+    // arraysAreEqual(prevProps.userData.details, nextProps.userData.details)
+    //  ||    arraysAreEqual(prevProps.repoDetails.details, nextProps.repoDetails.details)
+  ) {
+    // don't render if Props.userData.details are equal
+    return true;
+  } else {
+    return false;
+  }
+};
 
 export const Repo = memo(
   ({
@@ -38,5 +67,6 @@ export const Repo = memo(
             ) : null
         )}
     </ul>
-  )
+  ),
+  areEqual
 );
