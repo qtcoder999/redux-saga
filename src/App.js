@@ -1,5 +1,4 @@
 import React, { Suspense, useEffect } from "react";
-import "./App.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/configure-store";
 
@@ -12,7 +11,7 @@ import {
 
 import Navigation from "./common/navigation/routes";
 
-import * as Components from "./common/componentImports"
+import * as Components from "./common/utils/componentImports"
 
 function App() {
   useEffect(() => {
