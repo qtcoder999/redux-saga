@@ -1,16 +1,15 @@
-import React from 'react';
+import React from "react";
+import { INCREMENT, DECREMENT } from "../../containers/counter/constants";
 
-export default function Counter({ counter, increment, decrement }) {
-
-    return (
-        <div>
-            <h1>
-                Counter: {counter}
-            </h1>
-            <div>
-                <button onClick={increment}>Increment</button>
-                <button onClick={decrement}>Decrement</button>
-            </div>
-        </div>
-    )
+export default function Counter({ counter, ...props }) {
+  console.log("counter", props);
+  return (
+    <div>
+      <h1>Counter: {counter}</h1>
+      <div>
+        {/* <button onClick={dispatch({ type: INCREMENT })}>Increment</button>
+        <button onClick={dispatch({ type: DECREMENT })}>Decrement</button> */}
+      </div>
+    </div>
+  );
 }
