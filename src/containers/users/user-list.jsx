@@ -7,7 +7,7 @@ function UserList(props) {
   );
 
   function renderList(users) {
-    return users && users.map(({ id, name }) => <li key={id}>{name}</li>);
+    return <ul>{users && users.map(({ id, name }) => <li key={id}>{name}</li>)}</ul>;
   }
 
   function renderError() {

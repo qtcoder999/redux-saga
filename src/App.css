@@ -1,7 +1,10 @@
 #root{
     padding:0!important
 }
-ul, li{
+ul{
+  padding:10 !important;
+}
+li{
     margin: 10px;
 }
 
@@ -83,8 +86,8 @@ ul, li{
     left:0;
     height: 100%;
     width:100%;
-    transform: skewY(-4deg);
-    background: #333;
+    transform: skewY(-6deg);
+    background: #000;
     transform-origin: bottom left;
     z-index: -1;
   }

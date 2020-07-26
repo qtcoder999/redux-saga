@@ -53,9 +53,9 @@ function App() {
         <BrowserRouter>
           <Navigation />
           <Switch>
-            <Route path="/git" component={GitRepo} />
-            <Route path="/users" component={UserList} />
-            <Route path="/counter" component={CounterContainer} />
+            <Route path="/git" render={() => <div><GitRepo /></div>} />
+            <Route path="/users" render={() => <div><UserList /></div>} />
+            <Route path="/counter" render={() => <div><CounterContainer /></div>} />
             <Redirect to="/" />
           </Switch>
         </BrowserRouter>
