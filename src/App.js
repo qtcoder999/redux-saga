@@ -12,13 +12,13 @@ import {
 
 import Navigation from "./common/navigation/routes";
 
-import * as Component from "./common/componentImports"
+import * as Components from "./common/componentImports"
 
 function App() {
   useEffect(() => {
-    Component.GitRepoPreload.preload()
-    Component.CounterContainerPreload.preload()
-    Component.UserListPreload.preload()
+    Components.GitRepoPreload.preload()
+    Components.CounterContainerPreload.preload()
+    Components.UserListPreload.preload()
   }, []);
 
   return (
@@ -32,9 +32,9 @@ function App() {
         <BrowserRouter>
           <Navigation />
           <Switch>
-            <Route path="/git" render={() => <div><Component.GitRepo /></div>} />
-            <Route path="/users" render={() => <div><Component.UserList /></div>} />
-            <Route path="/counter" render={() => <div><Component.CounterContainer /></div>} />
+            <Route path="/git" render={() => <div><Components.GitRepo /></div>} />
+            <Route path="/users" render={() => <div><Components.UserList /></div>} />
+            <Route path="/counter" render={() => <div><Components.CounterContainer /></div>} />
             <Redirect to="/" />
           </Switch>
         </BrowserRouter>
