@@ -11,35 +11,14 @@ import {
 } from 'react-router-dom';
 
 import Navigation from "./common/navigation/routes";
-import { ReactLazyPreload } from "./common/utils";
 
-const GitRepo = React.lazy(() =>
-  import("./containers/git-repo/gitRepoContainer")
-);
-const CounterContainer = React.lazy(() =>
-  import("./containers/counter/counter-container")
-);
-const UserList = React.lazy(() =>
-  import("./containers/users/user-list")
-);
-
-
-const GitRepoPreload = ReactLazyPreload(() =>
-  import("./containers/git-repo/gitRepoContainer")
-);
-const CounterContainerPreload = ReactLazyPreload(() =>
-  import("./containers/counter/counter-container")
-);
-const UserListPreload = ReactLazyPreload(() =>
-  import("./containers/users/user-list")
-);
+import * as Components from "./common/componentImports"
 
 function App() {
-
   useEffect(() => {
-    GitRepoPreload.preload()
-    CounterContainerPreload.preload()
-    UserListPreload.preload()
+    Components.GitRepoPreload.preload()
+    Components.CounterContainerPreload.preload()
+    Components.UserListPreload.preload()
   }, []);
 
   return (
@@ -53,9 +32,9 @@ function App() {
         <BrowserRouter>
           <Navigation />
           <Switch>
-            <Route path="/git" render={() => <div><GitRepo /></div>} />
-            <Route path="/users" render={() => <div><UserList /></div>} />
-            <Route path="/counter" render={() => <div><CounterContainer /></div>} />
+            <Route path="/git" render={() => <div><Components.GitRepo /></div>} />
+            <Route path="/users" render={() => <div><Components.UserList /></div>} />
+            <Route path="/counter" render={() => <div><Components.CounterContainer /></div>} />
             <Redirect to="/" />
           </Switch>
         </BrowserRouter>
