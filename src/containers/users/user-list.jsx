@@ -1,5 +1,6 @@
 import React from "react";
 import { useAPI } from "../../common/customHooks";
+import Loader from 'react-loader-spinner'
 
 function UserList(props) {
   const { data: users, error, isFetching } = useAPI(
@@ -16,7 +17,12 @@ function UserList(props) {
   const showData = () => {
     if (!error) {
       if (isFetching) {
-        return <>...Loading</>;
+        return <Loader
+          type="TailSpin"
+          color="#333"
+          height={30}
+          width={30}
+        />;
       } else {
         return renderList(users);
       }
