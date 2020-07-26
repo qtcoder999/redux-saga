@@ -9,7 +9,7 @@ function GitRepoContainer({ ...props }) {
     fetchUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return <Users {...props} />;
+  return <Users />;
 }
 
 export default connect(

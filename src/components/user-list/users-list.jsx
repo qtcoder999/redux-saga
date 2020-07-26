@@ -1,14 +1,13 @@
-import React from "react";
+import React, { memo } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../containers/git-repo/action";
 import { Repo } from "../repo-list/repos";
 
-export const Users = ({
-  fetchUsers,
-  users,
-  fetchUserDetails,
-  fetchRepoDetails,
-
-  ...props
-}) => (
+export const Users = connect(
+  mapPropsToState,
+  actions
+)(
+  memo(({ users, fetchUserDetails, ...props }) => (
     <ul className="check-list">
       {users &&
         users.map(({ login, node_id }) => {
@@ -21,13 +20,16 @@ export const Users = ({
               }}
             >
               {login}
-              <Repo
-                login={login}
-                fetchRepoDetails={fetchRepoDetails}
-                {...props}
-              />
+              <Repo login={login} />
             </li>
           );
         })}
     </ul>
-  );
+  ))
+);
+
+function mapPropsToState({ repos: { users } }) {
+  return { users };
+}
+
+Users.displayName = "Users";
