@@ -1,30 +1,28 @@
 {
   "files": {
-    "static/js/0.c3ab1e08.chunk.js": "/redux-saga/static/js/0.c3ab1e08.chunk.js",
-    "static/js/0.c3ab1e08.chunk.js.map": "/redux-saga/static/js/0.c3ab1e08.chunk.js.map",
-    "static/js/1.6769e5b6.chunk.js": "/redux-saga/static/js/1.6769e5b6.chunk.js",
-    "static/js/1.6769e5b6.chunk.js.map": "/redux-saga/static/js/1.6769e5b6.chunk.js.map",
-    "static/js/2.8aef8e03.chunk.js": "/redux-saga/static/js/2.8aef8e03.chunk.js",
-    "static/js/2.8aef8e03.chunk.js.map": "/redux-saga/static/js/2.8aef8e03.chunk.js.map",
-    "static/js/3.62f04279.chunk.js": "/redux-saga/static/js/3.62f04279.chunk.js",
-    "static/js/3.62f04279.chunk.js.map": "/redux-saga/static/js/3.62f04279.chunk.js.map",
+    "static/js/0.99623656.chunk.js": "/redux-saga/static/js/0.99623656.chunk.js",
+    "static/js/0.99623656.chunk.js.map": "/redux-saga/static/js/0.99623656.chunk.js.map",
+    "static/js/1.090b2a90.chunk.js": "/redux-saga/static/js/1.090b2a90.chunk.js",
+    "static/js/1.090b2a90.chunk.js.map": "/redux-saga/static/js/1.090b2a90.chunk.js.map",
+    "static/js/2.1b523cf5.chunk.js": "/redux-saga/static/js/2.1b523cf5.chunk.js",
+    "static/js/2.1b523cf5.chunk.js.map": "/redux-saga/static/js/2.1b523cf5.chunk.js.map",
     "main.css": "/redux-saga/static/css/main.01e07b1e.chunk.css",
-    "main.js": "/redux-saga/static/js/main.e579b9f9.chunk.js",
-    "main.js.map": "/redux-saga/static/js/main.e579b9f9.chunk.js.map",
-    "runtime-main.js": "/redux-saga/static/js/runtime-main.32fb8f48.js",
-    "runtime-main.js.map": "/redux-saga/static/js/runtime-main.32fb8f48.js.map",
-    "static/js/6.44f371a6.chunk.js": "/redux-saga/static/js/6.44f371a6.chunk.js",
-    "static/js/6.44f371a6.chunk.js.map": "/redux-saga/static/js/6.44f371a6.chunk.js.map",
+    "main.js": "/redux-saga/static/js/main.77c9aa0c.chunk.js",
+    "main.js.map": "/redux-saga/static/js/main.77c9aa0c.chunk.js.map",
+    "runtime-main.js": "/redux-saga/static/js/runtime-main.a5cbe314.js",
+    "runtime-main.js.map": "/redux-saga/static/js/runtime-main.a5cbe314.js.map",
+    "vendors-combined.js": "/redux-saga/static/js/vendors-combined.b4775217.chunk.js",
+    "vendors-combined.js.map": "/redux-saga/static/js/vendors-combined.b4775217.chunk.js.map",
     "index.html": "/redux-saga/index.html",
-    "precache-manifest.be2990aa96195e24d0a4eaecf5fbf02d.js": "/redux-saga/precache-manifest.be2990aa96195e24d0a4eaecf5fbf02d.js",
+    "precache-manifest.6ce02c07a01f691f2a9d73eb99220d0c.js": "/redux-saga/precache-manifest.6ce02c07a01f691f2a9d73eb99220d0c.js",
     "service-worker.js": "/redux-saga/service-worker.js",
     "static/css/main.01e07b1e.chunk.css.map": "/redux-saga/static/css/main.01e07b1e.chunk.css.map",
-    "static/js/6.44f371a6.chunk.js.LICENSE.txt": "/redux-saga/static/js/6.44f371a6.chunk.js.LICENSE.txt"
+    "static/js/vendors-combined.b4775217.chunk.js.LICENSE.txt": "/redux-saga/static/js/vendors-combined.b4775217.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.32fb8f48.js",
-    "static/js/6.44f371a6.chunk.js",
+    "static/js/runtime-main.a5cbe314.js",
+    "static/js/vendors-combined.b4775217.chunk.js",
     "static/css/main.01e07b1e.chunk.css",
-    "static/js/main.e579b9f9.chunk.js"
+    "static/js/main.77c9aa0c.chunk.js"
   ]
 }
