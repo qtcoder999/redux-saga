@@ -264,14 +264,15 @@ module.exports = function (webpackEnv) {
         cacheGroups: {
           vendors: {
             test: /[\\/]node_modules[\\/]/,
-            name: "vendors-combined-paras-vishal",
+            name: "vendors-combined",
             chunks: "all",
           },
           app: {
             test: /[\\/]src[\\/]/,
-            name: "humari-app-paras-vishal",
-            chunks: 'initial',
-          }
+            name: "our-app-code",
+            chunks: "initial",
+            enforce: true,
+          },
         },
       },
       // Keep the runtime chunk separated to enable long term caching
