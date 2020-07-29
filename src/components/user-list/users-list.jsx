@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import * as actions from "../../containers/git-repo/action";
 import { Repo } from "../repo-list/repos";
 
+function areEqual(prevProps, nextProps) {
+  return JSON.stringify(prevProps) === JSON.stringify(nextProps)
+}
+
 export const Users = connect(
   mapPropsToState,
   actions
@@ -25,7 +29,7 @@ export const Users = connect(
           );
         })}
     </ul>
-  ))
+  ), areEqual)
 );
 
 function mapPropsToState({ repos: { users } }) {

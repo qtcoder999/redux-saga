@@ -13,6 +13,11 @@ import Navigation from "./common/navigation/routes";
 
 import * as Components from "./common/utils/componentImports"
 
+if (process.env.NODE_ENV === 'development') {
+  const whyDidYouRender = require('@welldone-software/why-did-you-render');
+  whyDidYouRender(React, { trackAllPureComponents: true, trackHooks: true, logOnDifferentValues: true, logOwnerReasons: true });
+}
+
 function App() {
   useEffect(() => {
     Components.GitRepoPreload.preload()

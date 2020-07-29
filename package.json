@@ -65,6 +65,9 @@
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "4.3.1"
   },
+  "devDependencies": {
+    "@welldone-software/why-did-you-render": "^4.2.7"
+  },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",

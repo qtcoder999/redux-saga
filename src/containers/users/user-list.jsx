@@ -1,6 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import { useAPI } from "../../common/utils/customHooks";
 import Loader from 'react-loader-spinner'
+
+function areEqual(prevProps, nextProps) {
+  alert()
+  return JSON.stringify(prevProps) === JSON.stringify(nextProps)
+}
 
 function UserList(props) {
   const { data: users, error, isFetching } = useAPI(
@@ -34,4 +39,4 @@ function UserList(props) {
   return <>{showData()}</>;
 }
 
-export default UserList;
+export default memo(UserList, areEqual);

@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, memo } from "react";
 import { connect } from "react-redux";
 import * as actions from "./action";
 import { Users } from "../../components/user-list/users-list";
+
+function areEqual(prevProps, nextProps) {
+  return JSON.stringify(prevProps) === JSON.stringify(nextProps)
+}
 
 function GitRepoContainer({ ...props }) {
   useEffect(() => {
@@ -15,4 +19,7 @@ function GitRepoContainer({ ...props }) {
 export default connect(
   ({ repos }) => ({ ...repos }),
   actions
-)(GitRepoContainer);
+)(memo(GitRepoContainer, areEqual));
+
+
+

@@ -2,6 +2,10 @@ import React, { memo } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../containers/git-repo/action";
 
+function areEqual(prevProps, nextProps) {
+  return JSON.stringify(prevProps) === JSON.stringify(nextProps)
+}
+
 export const Commit = connect(
   mapStateToProps,
   actions
@@ -15,17 +19,17 @@ export const Commit = connect(
       },
       ...props
     }) => (
-      <ul>
-        {repoDetails &&
-          repoDetails.map(
-            ({ commit: { message }, html_url: commitHtmlUrl }, index) =>
-              commitHtmlUrl.includes(props.repoHtmlUrl) ? (
-                <li key={index}>{message}</li>
-              ) : null
-          )}
-      </ul>
-    )
-  )
+        <ul>
+          {repoDetails &&
+            repoDetails.map(
+              ({ commit: { message }, html_url: commitHtmlUrl }, index) =>
+                commitHtmlUrl.includes(props.repoHtmlUrl) ? (
+                  <li key={index}>{message}</li>
+                ) : null
+            )}
+        </ul>
+      )
+    , areEqual)
 );
 
 function mapStateToProps({ repos: { repoDetails } }) {
