@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import * as Components from "./componentImports";
+
 export const useAPI = (endpoint) => {
   const [data, setData] = useState();
   const [error, setError] = useState();
@@ -24,3 +26,11 @@ export const useAPI = (endpoint) => {
   }, [endpoint]);
   return { data, error, isFetching };
 };
+
+export const usePreloading = () => {
+  useEffect(() => {
+    Components.GitRepoPreload.preload();
+    Components.CounterContainerPreload.preload();
+    Components.UserListPreload.preload();
+  }, []);
+}
