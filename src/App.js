@@ -21,8 +21,8 @@ function App() {
   return (
     <Provider store={store}>
       <Suspense fallback={null}>
-        <Header />
         <LanguageContext.Provider value={languagesInfo}>
+          <Header />
           <LanguageSelector setLanguage={setLanguage} selectedLanguage={languagesInfo.selectedLanguage} />
           <Routes />
         </LanguageContext.Provider>
