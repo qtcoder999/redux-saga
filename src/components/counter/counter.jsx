@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { INCREMENT, DECREMENT } from "../../containers/counter/constants";
 import { LanguageContext } from "../../context/Language";
+import { capitalizeFirstLetter } from "../../common/utils/utils";
 
 export default function Counter({ counter, dispatch, ...props }) {
   const { languages, selectedLanguage } = useContext(LanguageContext);
@@ -17,10 +18,10 @@ export default function Counter({ counter, dispatch, ...props }) {
         {counterLabel}: {counter}
       </h2>
       <button onClick={() => dispatch({ type: INCREMENT })}>
-        {incrementLabel}
+        {capitalizeFirstLetter(incrementLabel)}
       </button>
       <button onClick={() => dispatch({ type: DECREMENT })}>
-        {decrementLabel}
+        {capitalizeFirstLetter(decrementLabel)}
       </button>
     </div>
   );
