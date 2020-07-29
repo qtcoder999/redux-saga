@@ -3,7 +3,6 @@ import { useAPI } from "../../common/utils/customHooks";
 import Loader from 'react-loader-spinner'
 
 function areEqual(prevProps, nextProps) {
-  alert()
   return JSON.stringify(prevProps) === JSON.stringify(nextProps)
 }
 
