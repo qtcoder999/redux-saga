@@ -4,8 +4,7 @@ import * as actions from "./action";
 import { Users } from "../../components/user-list/users-list";
 
 function areEqual(prevProps, nextProps) {
-  console.log("@@@@@@@@USERS")
-  return JSON.stringify(prevProps) === JSON.stringify(nextProps)
+  return JSON.stringify(prevProps) === JSON.stringify(nextProps);
 }
 
 function GitRepoContainer({ ...props }) {
@@ -20,7 +19,4 @@ function GitRepoContainer({ ...props }) {
 export default connect(
   ({ repos }) => ({ ...repos }),
   actions
-)(memo(GitRepoContainer, areEqual));
-
-
-
+)(GitRepoContainer);

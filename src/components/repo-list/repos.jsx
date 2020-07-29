@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import * as actions from "../../containers/git-repo/action";
 
 const areEqual = (prevProps, nextProps) => {
-  console.log("Repo@@@@@@", { prevProps, nextProps })
   return JSON.stringify(prevProps) === JSON.stringify(nextProps)
 };
 

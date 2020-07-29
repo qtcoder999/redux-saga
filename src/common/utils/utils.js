@@ -26,3 +26,7 @@ export const compareObjects = (obj1, obj2) => {
 export function arraysAreEqual(ary1, ary2) {
   return ary1.join("") === ary2.join("");
 }
+
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}

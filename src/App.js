@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useState, useContext } from "react";
 import { Provider } from "react-redux";
 import { store } from "./redux/configure-store";
 
@@ -7,25 +7,59 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Navigation from "./common/navigation/routes";
 
 import * as Components from "./common/utils/componentImports";
+import { Select } from "./common/select/select";
+import { LanguageContext, LanguageContextProvider } from "./context/Language";
+
+import uuid from "react-uuid";
 
 if (process.env.NODE_ENV === "development") {
   const whyDidYouRender = require("@welldone-software/why-did-you-render");
   whyDidYouRender(React, {
-    trackAllPureComponents: true,
-    trackHooks: true,
-    logOnDifferentValues: true,
-    logOwnerReasons: true,
-    collapseGroups: false,
+    // trackAllPureComponents: true,
+    // trackHooks: true,
+    // logOnDifferentValues: true,
+    // logOwnerReasons: true,
+    // collapseGroups: false,
     // onlyLogs: true
   });
 }
 
-function App() {
+function App(props) {
+  const [currentLanguage, setCurrentLanguage] = useState("Please select");
+  const [languagesInfo, setLanguages] = useState({
+    languages: {
+      english: {
+        counter: "Counter",
+        increment: "increment",
+        decrement: "decrement",
+      },
+      spanish: {
+        counter: "Contadora",
+        increment: "incremento",
+        decrement: "decremento",
+      },
+      dutch: { counter: "Teller", increment: "verhoging", decrement: "afname" },
+      estonian: {
+        counter: "Loendur",
+        increment: "juurdekasv",
+        decrement: "vähendamine",
+      },
+    },
+    selectedLanguage: "",
+  });
+
+  // console.log(languagesInfo.selectedLanguage);
+
   useEffect(() => {
     Components.GitRepoPreload.preload();
     Components.CounterContainerPreload.preload();
     Components.UserListPreload.preload();
   }, []);
+
+  function setLanguage(event) {
+    const value = event.target.value;
+    setLanguages((prevState) => ({ ...prevState, selectedLanguage: value }));
+  }
 
   return (
     <Provider store={store}>
@@ -36,13 +70,30 @@ function App() {
           <h3>Get Users List</h3>
         </header>
         <BrowserRouter>
-          <Navigation />
-          <Switch>
-            <Route path="/git" component={Components.GitRepo} />
-            <Route path="/users" component={Components.UserList} />
-            <Route path="/counter" component={Components.CounterContainer} />
-            <Redirect to="/" />
-          </Switch>
+          <LanguageContextProvider languages={languagesInfo}>
+            <>
+              <Select
+                key={uuid()}
+                setLanguage={setLanguage}
+                currentLanguage={languagesInfo.selectedLanguage}
+              />
+              <Navigation />
+              <Switch>
+                <Route
+                  path="/git"
+                  render={() => (
+                    <Components.GitRepo language={currentLanguage} />
+                  )}
+                />
+                <Route path="/users" component={Components.UserList} />
+                <Route
+                  path="/counter"
+                  component={Components.CounterContainer}
+                />
+                <Redirect to="/" />
+              </Switch>
+            </>
+          </LanguageContextProvider>
         </BrowserRouter>
       </Suspense>
     </Provider>
