@@ -2,9 +2,9 @@ import React, { memo } from "react";
 import { Commit } from "../commit-list/commit-list";
 import { connect } from "react-redux";
 import * as actions from "../../containers/git-repo/action";
-// import { arraysAreEqual } from "../../common/utils";
 
 const areEqual = (prevProps, nextProps) => {
+  console.log("Repo@@@@@@", { prevProps, nextProps })
   return JSON.stringify(prevProps) === JSON.stringify(nextProps)
 };
 
@@ -14,9 +14,9 @@ export const Repo = connect(
 )(
   memo(
     ({
-      userData: { isLoading: isDetailLoading, isError: isDetailError, details },
-
-      ...props
+      userData: { details },
+      login,
+      fetchRepoDetails
     }) => (
         <ul>
           {details &&
@@ -30,12 +30,12 @@ export const Repo = connect(
                 },
                 repoIndex
               ) =>
-                ownerLogin === props.login ? (
+                ownerLogin === login ? (
                   <li
                     key={repoIndex}
                     onClick={(e) => {
                       e.stopPropagation();
-                      props.fetchRepoDetails(ownerLogin, repoName);
+                      fetchRepoDetails(ownerLogin, repoName);
                     }}
                   >
                     {repoName}

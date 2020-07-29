@@ -15,7 +15,7 @@ import * as Components from "./common/utils/componentImports"
 
 if (process.env.NODE_ENV === 'development') {
   const whyDidYouRender = require('@welldone-software/why-did-you-render');
-  whyDidYouRender(React, { trackAllPureComponents: true, trackHooks: true, logOnDifferentValues: true, logOwnerReasons: true });
+  whyDidYouRender(React, { trackAllPureComponents: true, trackHooks: true, logOnDifferentValues: true, logOwnerReasons: true, collapseGroups: true });
 }
 
 function App() {
@@ -36,9 +36,9 @@ function App() {
         <BrowserRouter>
           <Navigation />
           <Switch>
-            <Route path="/git" render={() => <div><Components.GitRepo /></div>} />
-            <Route path="/users" render={() => <div><Components.UserList /></div>} />
-            <Route path="/counter" render={() => <div><Components.CounterContainer /></div>} />
+            <Route path="/git" component={Components.GitRepo} />
+            <Route path="/users" component={Components.UserList} />
+            <Route path="/counter" component={Components.CounterContainer} />
             <Redirect to="/" />
           </Switch>
         </BrowserRouter>

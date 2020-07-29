@@ -4,6 +4,7 @@ import * as actions from "../../containers/git-repo/action";
 import { Repo } from "../repo-list/repos";
 
 function areEqual(prevProps, nextProps) {
+  console.log("@@@@@@", { prevProps, nextProps })
   return JSON.stringify(prevProps) === JSON.stringify(nextProps)
 }
 
@@ -11,7 +12,7 @@ export const Users = connect(
   mapPropsToState,
   actions
 )(
-  memo(({ users, fetchUserDetails, ...props }) => (
+  memo(({ users, fetchUserDetails }) => (
     <ul className="check-list">
       {users &&
         users.map(({ login, node_id }) => {
