@@ -2,34 +2,29 @@ import React, { Suspense, useEffect } from "react";
 import { Provider } from "react-redux";
 import { store } from "./redux/configure-store";
 
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  Redirect
-} from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Navigation from "./common/navigation/routes";
 
-import * as Components from "./common/utils/componentImports"
+import * as Components from "./common/utils/componentImports";
 
-if (process.env.NODE_ENV === 'development') {
-  const whyDidYouRender = require('@welldone-software/why-did-you-render');
+if (process.env.NODE_ENV === "development") {
+  const whyDidYouRender = require("@welldone-software/why-did-you-render");
   whyDidYouRender(React, {
     trackAllPureComponents: true,
     trackHooks: true,
     logOnDifferentValues: true,
     logOwnerReasons: true,
     collapseGroups: false,
-    onlyLogs: true
+    // onlyLogs: true
   });
 }
 
 function App() {
   useEffect(() => {
-    Components.GitRepoPreload.preload()
-    Components.CounterContainerPreload.preload()
-    Components.UserListPreload.preload()
+    Components.GitRepoPreload.preload();
+    Components.CounterContainerPreload.preload();
+    Components.UserListPreload.preload();
   }, []);
 
   return (
@@ -50,7 +45,7 @@ function App() {
           </Switch>
         </BrowserRouter>
       </Suspense>
-    </Provider >
+    </Provider>
   );
 }
 

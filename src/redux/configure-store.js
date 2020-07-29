@@ -10,7 +10,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(sagaMiddleware, thunk))
+  process.env.NODE_ENV === "development"
+    ? composeEnhancers(applyMiddleware(sagaMiddleware, thunk))
+    : applyMiddleware(sagaMiddleware, thunk)
 );
 
 sagaMiddleware.run(rootSaga);
