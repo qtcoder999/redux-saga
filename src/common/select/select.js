@@ -9,18 +9,13 @@ export function Select({ setLanguage, currentLanguage }) {
 
   return (
     <>
-      <select onChange={setLanguage} value={currentLanguage}>
+      <select className="select-css" onChange={setLanguage} value={currentLanguage}>
         {options &&
           Object.keys(options).map((item, index) => {
             return (
-              <>
-                <option key={uuid()} hidden>
-                  Please select
-                </option>
-                <option key={uuid()} value={item}>
-                  {capitalizeFirstLetter(item)}
-                </option>
-              </>
+              <option key={uuid()} value={item}>
+                {capitalizeFirstLetter(item)}
+              </option>
             );
           })}
       </select>

@@ -11,6 +11,7 @@ import { Select } from "./common/select/select";
 import { LanguageContext, LanguageContextProvider } from "./context/Language";
 
 import uuid from "react-uuid";
+import { languageInfo } from "./common/constants";
 
 if (process.env.NODE_ENV === "development") {
   const whyDidYouRender = require("@welldone-software/why-did-you-render");
@@ -25,28 +26,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 function App(props) {
-  const [currentLanguage, setCurrentLanguage] = useState("Please select");
-  const [languagesInfo, setLanguages] = useState({
-    languages: {
-      english: {
-        counter: "Counter",
-        increment: "increment",
-        decrement: "decrement",
-      },
-      spanish: {
-        counter: "Contadora",
-        increment: "incremento",
-        decrement: "decremento",
-      },
-      dutch: { counter: "Teller", increment: "verhoging", decrement: "afname" },
-      estonian: {
-        counter: "Loendur",
-        increment: "juurdekasv",
-        decrement: "vähendamine",
-      },
-    },
-    selectedLanguage: "",
-  });
+  const [languagesInfo, setLanguages] = useState(languageInfo);
 
   // console.log(languagesInfo.selectedLanguage);
 
@@ -70,19 +50,20 @@ function App(props) {
           <h3>Get Users List</h3>
         </header>
         <BrowserRouter>
-          <LanguageContextProvider languages={languagesInfo}>
+          <LanguageContext.Provider value={languagesInfo}>
             <>
-              <Select
+              <div> <span>Change Lanuage:</span> <Select
                 key={uuid()}
                 setLanguage={setLanguage}
                 currentLanguage={languagesInfo.selectedLanguage}
               />
+              </div>
               <Navigation />
               <Switch>
                 <Route
                   path="/git"
                   render={() => (
-                    <Components.GitRepo language={currentLanguage} />
+                    <Components.GitRepo />
                   )}
                 />
                 <Route path="/users" component={Components.UserList} />
@@ -93,7 +74,7 @@ function App(props) {
                 <Redirect to="/" />
               </Switch>
             </>
-          </LanguageContextProvider>
+          </LanguageContext.Provider>
         </BrowserRouter>
       </Suspense>
     </Provider>

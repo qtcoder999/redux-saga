@@ -5,30 +5,23 @@ import { LanguageContext } from "../../context/Language";
 export default function Counter({ counter, dispatch, ...props }) {
   const { languages, selectedLanguage } = useContext(LanguageContext);
 
-  const counterLabel =
-    selectedLanguage !== "" ? languages[selectedLanguage].counter : "Counter";
+  const counterLabel = languages[selectedLanguage].counter;
 
-  const incrementLabel =
-    selectedLanguage !== ""
-      ? languages[selectedLanguage].increment
-      : "Increment";
+  const incrementLabel = languages[selectedLanguage].increment;
 
-  const decrementLabel =
-    selectedLanguage !== ""
-      ? languages[selectedLanguage].decrement
-      : "Decrement";
+  const decrementLabel = languages[selectedLanguage].decrement;
 
   return (
-    <>
-      <h1>
+    <div>
+      <h2>
         {counterLabel}: {counter}
-      </h1>
+      </h2>
       <button onClick={() => dispatch({ type: INCREMENT })}>
         {incrementLabel}
       </button>
       <button onClick={() => dispatch({ type: DECREMENT })}>
         {decrementLabel}
       </button>
-    </>
+    </div>
   );
 }

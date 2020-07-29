@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => (
     <div>
-        <ul>
+        <ul className="style-none flex list">
             <li>
                 <Link to="/">Home</Link>
             </li>
