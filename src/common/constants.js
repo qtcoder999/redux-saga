@@ -5,6 +5,11 @@ export const languageInfo = {
             increment: "increment",
             decrement: "decrement",
         },
+        hindi: {
+            counter: "काउंटर",
+            increment: "जोड़ें",
+            decrement: "घटाएं",
+        },
         spanish: {
             counter: "Contadora",
             increment: "incremento",
