@@ -16,7 +16,7 @@ function UserList(props) {
   }
 
   function renderError() {
-    return <>Network Error</>;
+    return <div>Network Error</div>;
   }
   const showData = () => {
     if (!error) {
