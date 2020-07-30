@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 
 export function Header() {
     const textWrapper = useRef(null);
-    const suggestions = ['custom hooks', 'redux-saga', 'lazy-loading', 'react-memo', 'context API', 'custom webpack config'];
+    const suggestions = ['react', 'redux', 'custom hooks', 'redux-saga', 'lazy-loading', 'react-memo', 'context API', 'custom webpack config'];
     const speed = 100;
     let charCounter = 0;
     let currentIndex = 0;
