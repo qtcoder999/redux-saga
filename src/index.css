@@ -218,10 +218,16 @@ button:last-child{
     display: none;
   }
   .diff{
-    height: 250px;
+    height: 150px;
   }
   .diff .heading:first-child{
     margin-block-end: 0!important;
+  }
+  .heading{
+    width: 100%!important;
+  }
+  header{
+    padding: 2em 2em 4em;
   }
 }
 
