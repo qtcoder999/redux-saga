@@ -13,8 +13,15 @@ import axios from "axios";
 
 export function* getUsers() {
   try {
+    let url = "";
+    if (process.env.NODE_ENV === "production") {
+      url = "https://api.github.com/users"
+    }
+    else {
+      url = "https://jsonblob.com/api/64743a51-ce9c-11ea-a271-23e375ad002d";
+    }
     const { data } = yield call(() =>
-      axios.get("https://jsonblob.com/api/64743a51-ce9c-11ea-a271-23e375ad002d")
+      axios.get(url)
     );
     yield put({ type: FETCH_REPOS_SUCCESS, payload: data });
   } catch (error) {

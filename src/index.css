@@ -222,3 +222,7 @@ button:last-child{
 select{
   margin-left: 5px!important;
 }
+
+.no-event,.no-event *{
+  pointer-events: none;
+}

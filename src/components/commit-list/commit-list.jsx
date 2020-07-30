@@ -19,7 +19,7 @@ export const Commit = connect(
       },
       ...props
     }) => (
-        <ul>
+        <ul className="no-event">
           {repoDetails &&
             repoDetails.map(
               ({ commit: { message }, html_url: commitHtmlUrl }, index) =>
