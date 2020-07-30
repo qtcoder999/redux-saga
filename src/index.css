@@ -1,7 +1,6 @@
 #root{
     padding:0!important
 }
-
 li{
     margin: 10px;
 }
@@ -15,14 +14,12 @@ button:last-child{
     margin: 0;
     padding-left: 1.2rem;
   }
-  
   .check-list li {
     position: relative;
     list-style-type: none;
     padding-left: 2.5rem;
     margin-bottom: 0.5rem;
   }
-  
   .check-list li:before {
       content: '';
       display: block;
@@ -37,51 +34,33 @@ button:last-child{
       transform-origin: bottom left;
       transform: rotate(45deg);
   }
-  
-  
-  /* Boilerplate stuff */
   *,
   *:before,
   *:after {
     box-sizing: border-box;
   }
-  
   html {
     -webkit-font-smoothing: antialiased;
     font-family: "Helvetica Neue", sans-serif;
     font-size: 62.5%;
   }
-  
   body {
-    font-size: 1.6rem; /* 18px */
+    font-size: 1.6rem; 
     background-color: #efefef;
     color: #324047
   }
-  
   html,
-  body,
-  section {
+  body{
     height: 100%;
   }
-  
-  section {
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-  }
-  
   div {
     margin: auto;
   }
-  
   header{
     margin: 0; padding: 2em 5em 4em; color: #efefef;
     overflow:hidden;
     position: relative;
   }
-  
   header::after{
     content:"";
     position:absolute;
@@ -94,7 +73,6 @@ button:last-child{
     transform-origin: bottom left;
     z-index: -1;
   }
-  
   header::before{
     content:"";
     position:absolute;
@@ -107,23 +85,20 @@ button:last-child{
     transform-origin: bottom right;
     z-index: -1;
   }
-  
   body{margin:0; background: #efefef;}
   div{padding: 1em 2em 1em 2em;}
-  
   header{
     display: flex;
     flex-flow: column nowrap;
     }
   header > h3 {align-self: flex-end;}
-  
   .select-css {
     font-size: 16px;
     font-weight: 700;
     color: #444;
     line-height: 1.3;
     padding: 0.4em 1.4em 0.3em .8em;
-    max-width: 100%; /* useful when width is set to anything other than 100% */
+    max-width: 100%; 
     box-sizing: border-box;
     margin: 0;
     border: 1px solid #aaa;
@@ -133,79 +108,57 @@ button:last-child{
     -webkit-appearance: none;
     appearance: none;
     background-color: #fff;
-    /* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient. 
-        for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
-        
-    */
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
       linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
     background-repeat: no-repeat, repeat;
-    /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
     background-position: right .7em top 50%, 0 0;
-    /* icon size, then gradient */
     background-size: .65em auto, 100%;
 }
-/* Hide arrow icon in IE browsers */
 .select-css::-ms-expand {
     display: none;
 }
-/* Hover style */
 .select-css:hover {
     border-color: #888;
 }
-/* Focus style */
 .select-css:focus {
     border-color: #aaa;
-    /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
+    
     box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
     box-shadow: 0 0 0 3px -moz-mac-focusring;
     color: #222; 
     outline: none;
 }
-
-/* Set options to normal weight */
 .select-css option {
     font-weight:normal;
 }
-
-/* Support for rtl text, explicit support for Arabic and Hebrew */
 *[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
     background-position: left .7em top 50%, 0 0;
     padding: .6em .8em .5em 1.4em;
 }
-
-/* Disabled styles */
 .select-css:disabled, .select-css[aria-disabled=true] {
     color: graytext;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
       linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
 }
-
 .select-css:disabled:hover, .select-css[aria-disabled=true] {
     border-color: #aaa;
 }
-
 .style-none{list-style: none;}
-
 .flex{
   display: flex;
   justify-content: space-between;
   width: 400px;
 } 
-
 .list{
   text-align: left;
   padding-left: 0;
   margin-left: 0;
 } 
-
 .list li:first-child{
   padding-left: 0;
   margin-left: 0;
 }
  .list li{width: auto;}
-
-
  @media only screen and (max-width: 500px) {
   .flex{
     width: 305px;
@@ -229,11 +182,9 @@ button:last-child{
     margin-top: 0;
   }
 }
-
 select{
   margin-left: 5px!important;
 }
-
 .no-event,.no-event *{
   pointer-events: none;
 }
