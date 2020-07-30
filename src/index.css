@@ -205,9 +205,6 @@ button:last-child{
 }
  .list li{width: auto;}
 
- h2{
-   margin-top: 0;
- }
 
  @media only screen and (max-width: 500px) {
   .flex{
@@ -227,6 +224,9 @@ button:last-child{
   }
   header{
     padding: 2em 2em 4em;
+  }
+  h2{
+    margin-top: 0;
   }
 }
 
