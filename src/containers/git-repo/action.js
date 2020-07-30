@@ -16,10 +16,16 @@ export function fetchUserDetails(login) {
 
 export function fetchRepoDetails(ownerLogin, repoName) {
   return function (dispatch) {
+    let url = null;
+    if (process.env.NODE_ENV === "production") {
+      url = `https://api.github.com/repos/${ownerLogin}/${repoName}/commits`;
+    }
+    else {
+      url = "https://jsonblob.com/api/9c3b8d9d-ce9c-11ea-a271-dd9248579c31";
+    }
     return (
       axios
-        // .get(`https://api.github.com/repos/${ownerLogin}/${repoName}/commits`)
-        .get(`https://jsonblob.com/api/9c3b8d9d-ce9c-11ea-a271-dd9248579c31`)
+        .get(url)
         .then(({ data }) =>
           dispatch({ type: FETCH_REPO_DETAILS_SUCCESS, payload: data })
         )

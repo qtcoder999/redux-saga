@@ -31,7 +31,7 @@ export function* gitUserWatcherSaga() {
 export function* getUserData(action) {
   try {
     let data = {};
-    if (process.env.NODE_ENV !== "development") {
+    if (process.env.NODE_ENV === "production") {
       const response = yield call(({ payload }) => axios.get(`https://api.github.com/users/${payload}/repos`), action);
       data = response.data;
     }
