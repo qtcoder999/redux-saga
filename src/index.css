@@ -217,6 +217,12 @@ button:last-child{
   .hide-on-mobile{
     display: none;
   }
+  .diff{
+    height: 250px;
+  }
+  .diff .heading:first-child{
+    margin-block-end: 0!important;
+  }
 }
 
 select{
