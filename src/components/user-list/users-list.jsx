@@ -2,7 +2,6 @@ import React, { memo } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../containers/git-repo/action";
 import { Repo } from "../repo-list/repos";
-import Loader from "react-loader-spinner";
 
 function areEqual(prevProps, nextProps) {
   return (JSON.stringify(prevProps) === JSON.stringify(nextProps))
@@ -14,12 +13,7 @@ export const Users = memo(connect(
 )(
   (({ users, fetchUserDetails, isLoading }) => (
     isLoading ?
-      <Loader
-        type="TailSpin"
-        color="#333"
-        height={30}
-        width={30}
-      /> :
+      <h3 className="loadersmall">{""}</h3> :
       <ul className="check-list">
         {users &&
           users.map(({ login, node_id }) => {

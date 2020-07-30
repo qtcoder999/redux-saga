@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import { useAPI } from "../../common/utils/customHooks";
-import Loader from 'react-loader-spinner'
 
 function areEqual(prevProps, nextProps) {
   return JSON.stringify(prevProps) === JSON.stringify(nextProps)
@@ -21,12 +20,7 @@ function UserList(props) {
   const showData = () => {
     if (!error) {
       if (isFetching) {
-        return <Loader
-          type="TailSpin"
-          color="#333"
-          height={30}
-          width={30}
-        />;
+        return <h3 className="loadersmall">{""}</h3>;
       } else {
         return renderList(users);
       }
