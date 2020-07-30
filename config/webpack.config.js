@@ -663,7 +663,7 @@ module.exports = function (webpackEnv) {
         // The formatter is invoked directly in WebpackDevServerUtils during development
         formatter: isEnvProduction ? typescriptFormatter : undefined,
       }),
-      new BundleAnalyzerPlugin(),
+      isEnvDevelopment && new BundleAnalyzerPlugin(),
       new CompressionPlugin({
         filename: '[path].gz[query]',
         algorithm: 'gzip',
