@@ -30,14 +30,21 @@ export function* gitUserWatcherSaga() {
 
 export function* getUserData(action) {
   try {
-    // const { data } = yield call(({payload}) => axios.get(`https://api.github.com/users/${payload}/repos`), action);
-    const { data } = yield call(
-      ({ payload }) =>
-        axios.get(
-          `https://jsonblob.com/api/81ae874d-ce9c-11ea-a271-e79f32c2ac48`
-        ),
-      action
-    );
+    let data = {};
+    if (process.env.NODE_ENV !== "development") {
+      const response = yield call(({ payload }) => axios.get(`https://api.github.com/users/${payload}/repos`), action);
+      data = response.data;
+    }
+    else {
+      const response = yield call(
+        ({ payload }) =>
+          axios.get(
+            `https://jsonblob.com/api/81ae874d-ce9c-11ea-a271-e79f32c2ac48`
+          ),
+        action
+      );
+      data = response.data;
+    }
 
     yield put({ type: FETCH_USER_DATA_SUCCESS, payload: data });
   } catch (error) {
