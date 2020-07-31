@@ -6,7 +6,7 @@ import { languageInfo } from "./common/constants";
 import { Header } from "./common/header/header";
 import { LanguageSelector } from "./components/language-selector/language-selector";
 import { Routes } from "./common/routes";
-import { usePreloading } from "./common/utils/customHooks";
+// import { usePreloading } from "./common/utils/customHooks";
 
 function App() {
   const [languagesInfo, setLanguages] = useState(languageInfo);
