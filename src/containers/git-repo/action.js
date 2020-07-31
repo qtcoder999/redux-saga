@@ -4,7 +4,6 @@ import {
   FETCH_REPO_DETAILS_SUCCESS,
   FETCH_REPO_DETAILS_FAILURE,
 } from "./constant";
-import axios from "axios";
 
 export function fetchUsers() {
   return { type: FETCH_REPOS };
@@ -19,19 +18,16 @@ export function fetchRepoDetails(ownerLogin, repoName) {
     let url = null;
     if (process.env.NODE_ENV === "production") {
       url = `https://api.github.com/repos/${ownerLogin}/${repoName}/commits`;
-    }
-    else {
+    } else {
       url = "https://jsonblob.com/api/9c3b8d9d-ce9c-11ea-a271-dd9248579c31";
     }
-    return (
-      axios
-        .get(url)
-        .then(({ data }) =>
-          dispatch({ type: FETCH_REPO_DETAILS_SUCCESS, payload: data })
-        )
-        .catch((error) =>
-          dispatch({ type: FETCH_REPO_DETAILS_FAILURE, payload: error })
-        )
-    );
+    return fetch(url)
+      .then((response) => response.json())
+      .then((response) =>
+        dispatch({ type: FETCH_REPO_DETAILS_SUCCESS, payload: response })
+      )
+      .catch((error) =>
+        dispatch({ type: FETCH_REPO_DETAILS_FAILURE, payload: error })
+      );
   };
 }

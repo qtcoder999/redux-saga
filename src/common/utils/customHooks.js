@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 
 import * as Components from "./componentImports";
 
@@ -11,10 +10,10 @@ export const useAPI = (endpoint) => {
   useEffect(() => {
     const getApiData = async () => {
       setIsFetching(true);
-      await axios
-        .get(endpoint)
-        .then(({ data }) => {
-          setData(data);
+      await fetch(endpoint)
+        .then((response) => response.json())
+        .then((response) => {
+          setData(response);
         })
         .catch((error) => {
           setError(error);
@@ -33,4 +32,4 @@ export const usePreloading = () => {
     Components.CounterContainerPreload.preload();
     Components.UserListPreload.preload();
   }, []);
-}
+};
