@@ -11,7 +11,7 @@ import { usePreloading } from "./common/utils/customHooks";
 function App() {
   const [languagesInfo, setLanguages] = useState(languageInfo);
 
-  usePreloading();
+  // usePreloading();
 
   function setLanguage(event) {
     const value = event.target.value;
@@ -23,7 +23,10 @@ function App() {
       <Suspense fallback={null}>
         <LanguageContext.Provider value={languagesInfo}>
           <Header />
-          <LanguageSelector setLanguage={setLanguage} selectedLanguage={languagesInfo.selectedLanguage} />
+          <LanguageSelector
+            setLanguage={setLanguage}
+            selectedLanguage={languagesInfo.selectedLanguage}
+          />
           <Routes />
         </LanguageContext.Provider>
       </Suspense>
