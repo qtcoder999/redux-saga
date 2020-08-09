@@ -19,6 +19,9 @@ const Navigation = () => (
       <li>
         <Link to="/cra">CRA latest releases</Link>
       </li>
+      <li>
+        <Link to="/timer">Virtual Dom Timer</Link>
+      </li>
     </ul>
   </div>
 );

@@ -27,3 +27,7 @@ export const UserListPreload = ReactLazyPreload(() =>
 export const CRAReleasesPreload = ReactLazyPreload(() =>
   import("../../containers/cra-releases/cra-releases-container")
 );
+
+export const VirtualDomTimer = ReactLazyPreload(() =>
+  import("../../components/virtual-dom-timer/VirtualDomTimer")
+);

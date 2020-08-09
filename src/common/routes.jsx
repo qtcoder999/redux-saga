@@ -11,6 +11,7 @@ export const Routes = () => (
       <Route path="/users" component={Components.UserList} />
       <Route path="/counter" component={Components.CounterContainer} />
       <Route path="/cra" component={Components.CRAReleases} />
+      <Route path="/timer" component={Components.VirtualDomTimer} />
       <Redirect to="/git" />
     </Switch>
   </BrowserRouter>
