@@ -31,5 +31,6 @@ export const usePreloading = () => {
     Components.GitRepoPreload.preload();
     Components.CounterContainerPreload.preload();
     Components.UserListPreload.preload();
+    Components.VirtualDomTimer.preload();
   }, []);
 };

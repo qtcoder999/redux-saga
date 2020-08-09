@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 function VirtualDomTimer() {
-  const InitialTime = new Date(Date.now()).toLocaleTimeString();
-  const [time, setTime] = useState(InitialTime);
+  const initialTime = new Date(Date.now()).toLocaleTimeString();
+  const [time, setTime] = useState(initialTime);
 
   const getTime = () => {
     const newTime = new Date(Date.now()).toLocaleTimeString();
