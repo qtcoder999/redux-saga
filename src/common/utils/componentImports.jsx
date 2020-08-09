@@ -14,10 +14,9 @@ export const UserList = React.lazy(() =>
 export const CRAReleases = React.lazy(() =>
   import("../../containers/cra-releases/cra-releases-container")
 );
-
-export const VirtualDomTimer = React.lazy(() => {
-  import("../../components/virtual-dom-timer/VirtualDomTimer");
-});
+export const VirtualDomTimer = React.lazy(() =>
+  import("../../components/virtual-dom-timer/VirtualDomTimer")
+);
 
 export const GitRepoPreload = ReactLazyPreload(() =>
   import("../../containers/git-repo/gitRepoContainer")
@@ -31,7 +30,6 @@ export const UserListPreload = ReactLazyPreload(() =>
 export const CRAReleasesPreload = ReactLazyPreload(() =>
   import("../../containers/cra-releases/cra-releases-container")
 );
-
 export const VirtualDomTimerPreload = ReactLazyPreload(() =>
   import("../../components/virtual-dom-timer/VirtualDomTimer")
 );
