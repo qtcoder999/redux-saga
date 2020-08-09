@@ -22,7 +22,7 @@ function VirtualDomTimer() {
   return (
     <div className="time-container">
       <p>
-        Check the DOM onlt the{" "}
+        Check the DOM on which the{" "}
         <em>
           <b>time</b>
         </em>{" "}
@@ -31,7 +31,7 @@ function VirtualDomTimer() {
       <p>
         But if we check the same code in normal JS code whole container will
         <b>
-          <u> repaint</u>
+          <u>repaint</u>
         </b>{" "}
         every second
       </p>
