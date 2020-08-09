@@ -29,7 +29,7 @@ function VirtualDomTimer() {
         div is repainting.
       </p>
       <p>
-        But if we check the same code in normal JS code whole container will
+        But if we check the same code in normal JS code whole container will{" "}
         <b>
           <u>repaint</u>
         </b>{" "}
