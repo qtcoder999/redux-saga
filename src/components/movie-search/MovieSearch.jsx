@@ -50,10 +50,8 @@ function MovieSearch() {
   };
 
   return (
-    <div className="App">
-      <header>
-        <h1>Movie Database</h1>
-      </header>
+    <div className="">
+      <h1>Movie Database</h1>
       <main>
         <Search handleInput={handleInput} search={search} />
         <Results results={state.results} openPopup={openPopup} />
