@@ -12,6 +12,8 @@ export function Header() {
     "context API",
     "custom webpack config",
     "virtual-dom-timer",
+    "movie search",
+    "weather search",
   ];
   const speed = 100;
   let charCounter = 0;
