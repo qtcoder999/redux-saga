@@ -162,14 +162,16 @@ header > h3 {
 .flex {
   display: flex;
   justify-content: space-between;
-  width: 600px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 860px;
 }
 .list {
   text-align: left;
   padding-left: 0;
   margin-left: 0;
 }
-.list li:first-child {
+.list li {
   padding-left: 0;
   margin-left: 0;
 }
