@@ -17,6 +17,12 @@ export const CRAReleases = React.lazy(() =>
 export const VirtualDomTimer = React.lazy(() =>
   import("../../components/virtual-dom-timer/VirtualDomTimer")
 );
+export const MovieSearch = React.lazy(() =>
+  import("../../components/movie-search/MovieSearch")
+);
+export const Weather = React.lazy(() =>
+  import("../../components/weather/Weather")
+);
 
 export const GitRepoPreload = ReactLazyPreload(() =>
   import("../../containers/git-repo/gitRepoContainer")

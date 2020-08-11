@@ -22,6 +22,12 @@ const Navigation = () => (
       <li>
         <Link to="/timer">Virtual Dom Timer</Link>
       </li>
+      <li>
+        <Link to="/movie">Movie Search</Link>
+      </li>
+      <li>
+        <Link to="/weather">Weather Search</Link>
+      </li>
     </ul>
   </div>
 );

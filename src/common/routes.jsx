@@ -12,6 +12,8 @@ export const Routes = () => (
       <Route path="/counter" component={Components.CounterContainer} />
       <Route path="/cra" component={Components.CRAReleases} />
       <Route path="/timer" component={Components.VirtualDomTimer} />
+      <Route path="/movie" component={Components.MovieSearch} />
+      <Route path="/weather" component={Components.Weather} />
       <Redirect to="/git" />
     </Switch>
   </BrowserRouter>
